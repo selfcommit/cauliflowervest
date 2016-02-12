@@ -94,7 +94,10 @@ ${CV_SDIST}: clean VE client_config
 client_config:
 	@echo client_config
 
-server_config: build test keyczar
+npm_init:
+	@if [ ! -x "package.json" ]; then npm init ; fi
+
+server_config: npm_init build test keyczar
 	./create_gae_bundle.sh ${CWD}
 
 tmp/${KEYCZAR_SRC}:
