@@ -95,7 +95,7 @@ client_config:
 	@echo client_config
 
 npm_init:
-	@if [ ! -x "package.json" ]; then npm init ; fi
+	@if [ ! -f "package.json" ]; then npm init ; fi
 
 server_config: npm_init build test keyczar
 	./create_gae_bundle.sh ${CWD}
